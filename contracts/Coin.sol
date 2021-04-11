@@ -2,10 +2,10 @@ pragma solidity >=0.7.0 <=0.8.0;
 
 contract Coin{
     address public owner;
-    mapping (address=>uint) balancers;
+    mapping (address=>uint256) balancers;
 
-    modifier onlyOwer(){
-        require(msg.sender == ower,'Owable: call is not the onwer');
+    modifier onlyOwner() {
+        require(msg.sender == owner, "Ownable: caller is not the owner");
         _;
     }
 
@@ -19,7 +19,7 @@ contract Coin{
         return balancers[_address];
     }
 
-    function mint(address _address, uint _amount) public onlyOwer{
+    function mint(address _address, uint _amount) public onlyOwner{
         balancers[_address] +=_amount;
     }
 
