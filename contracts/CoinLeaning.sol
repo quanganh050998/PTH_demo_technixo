@@ -12,6 +12,8 @@ contract CoinLending{
         uint256 loanExpDate; // Ngày hết hạn vay
     }
 
+    uint public offerId;
+
     address public coincoinContractAddress;
 
     mapping (uint => Offer) public offer;
@@ -23,7 +25,8 @@ contract CoinLending{
         uint256 _id,
         address _borrower,
         uint256 _amountETH,
-        uint256 _loanExpDate
+        uint256 _loanExpDate,
+        uint256 _dailyInterestRate
     );
 
     function createOffer(
@@ -41,8 +44,10 @@ contract CoinLending{
             amountETH: _amountETH,
             duration: _duration,
             dailyInterestRate: _dailyInterestRate,
+            borrower: msg.sender,
+            loanExpDate: 0
         });
-        return id;
+        return _id;
     }
 
     function borrow(uint _id) public payable{
@@ -54,7 +59,7 @@ contract CoinLending{
         myOffer.loanExpDate = block.timestamp + myOffer.duration;
         myOffer.borrower = _borrower;
         
-        emit OfferTaken(_id, _borrower, msg.value, myOffer.loanExpDate);
+        emit OfferTaken(_id, _borrower, msg.value, myOffer.loanExpDate,myOffer.dailyInterestRate);
     }
 
 
