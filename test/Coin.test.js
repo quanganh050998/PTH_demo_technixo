@@ -25,41 +25,41 @@ contract('Coin', (accounts) => {
   });
 
 
-//   it('should tranfer success if account have enough money', async () => {
-//     const _sender = accounts[0];
-//     const _receiver = accounts[2];
-//     const _amount = 100;
+  // it('should tranfer success if account have enough money', async () => {
+  //   const _sender = accounts[0];
+  //   const _receiver = accounts[2];
+  //   const _amount = 100;
 
-//     // Mint for sender
-//     await contractInstance.mint(_sender, _amount);
+  //   // Mint for sender
+  //   await contractInstance.mint(_sender, _amount);
 
-//     const balanceOfSenderBeforeTransfer = Number(await contractInstance.getBalance(_sender));
-//     const balanceOfReceiverBeforeTransfer = Number(await contractInstance.getBalance(_receiver));
+  //   const balanceOfSenderBeforeTransfer = Number(await contractInstance.getBalance(_sender));
+  //   const balanceOfReceiverBeforeTransfer = Number(await contractInstance.getBalance(_receiver));
 
-//     // Transfer from _sender to _receiver
-//     const result = await contractInstance.transfer(_receiver, _amount, {
-//       from: _sender
-//     });
+  //   // Transfer from _sender to _receiver
+  //   const result = await contractInstance.transfer(_receiver, _amount, {
+  //     from: _sender
+  //   });
 
-//     truffleAssert.eventEmitted(result, 'Transfer', (ev) => {
-//       return ev._sender === _sender
-//         && ev._receiver === _receiver
-//         && ev._amount.toNumber() === _amount
-//     });
+  //   truffleAssert.eventEmitted(result, 'Transfer', (ev) => {
+  //     return ev._sender === _sender
+  //       && ev._receiver === _receiver
+  //       && ev._amount.toNumber() === _amount
+  //   });
 
-//     const balanceOfSenderAfterTransfer = Number(await contractInstance.getBalance(_sender));
-//     const balanceOfReceiverAfterTransfer = Number(await contractInstance.getBalance(_receiver));
+  //   const balanceOfSenderAfterTransfer = Number(await contractInstance.getBalance(_sender));
+  //   const balanceOfReceiverAfterTransfer = Number(await contractInstance.getBalance(_receiver));
 
-//     assert.equal(
-//       balanceOfSenderAfterTransfer,
-//       balanceOfSenderBeforeTransfer - _amount,
-//       'Minus balance sender'
-//     );
-//     assert.equal(
-//       balanceOfReceiverAfterTransfer,
-//       balanceOfReceiverBeforeTransfer + _amount,
-//       'Add balance receiver'
-//     );
-//   });
+  //   assert.equal(
+  //     balanceOfSenderAfterTransfer,
+  //     balanceOfSenderBeforeTransfer - _amount,
+  //     'Minus balance sender'
+  //   );
+  //   assert.equal(
+  //     balanceOfReceiverAfterTransfer,
+  //     balanceOfReceiverBeforeTransfer + _amount,
+  //     'Add balance receiver'
+  //   );
+  // });
 
 })
